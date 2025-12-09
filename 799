@@ -1,0 +1,13 @@
+lines = open("input.txt", "r", encoding="utf-8").read().splitlines()
+
+scores = []
+for line in lines:
+    parts = line.split()
+    score = int(parts[-1])  
+    scores.append(score)
+
+max_score = max(scores)
+
+winners_count = scores.count(max_score)
+
+open("output.txt", "w", encoding="utf-8").write(str(winners_count))
