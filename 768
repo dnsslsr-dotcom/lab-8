@@ -1,1 +1,9 @@
+from decimal import Decimal
+
+prices = [input() for _ in range(3)]  
+for p in prices:
+    value = Decimal(p)
+    hryvnia = int(value)
+    kopiyky = int((value - hryvnia) * 100)
+    print(hryvnia, kopiyky)
 
