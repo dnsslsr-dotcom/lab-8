@@ -1,0 +1,32 @@
+scores = {9: [], 10: [], 11: []}
+
+with open("input.txt", "r", encoding="utf-8") as f:
+    for lineno, line in enumerate(f, start=1):
+        line = line.strip()
+        if not line:
+            continue
+        parts = line.split()
+        if len(parts) < 2:
+            print(f"Warning: line {lineno} skipped (too few parts): {line}")
+            continue
+        try:
+            cls = int(parts[-2])
+            score = int(parts[-1])
+        except ValueError:
+            print(f"Warning: line {lineno} skipped (non-integer class/score): {line}")
+            continue
+        if cls in (9, 10, 11):
+            scores[cls].append(score)
+        else:
+            print(f"Warning: line {lineno} has unexpected class {cls}: {line}")
+
+result_counts = []
+for cls in (9, 10, 11):
+    if not scores[cls]:
+        result_counts.append(0)
+    else:
+        max_score = max(scores[cls])
+        result_counts.append(scores[cls].count(max_score))
+
+with open("output.txt", "w", encoding="utf-8") as out:
+    out.write(f"{result_counts[0]} {result_counts[1]} {result_counts[2]}")
