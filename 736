@@ -1,0 +1,6 @@
+with open("input.txt", "r") as inp:
+    lines = inp.readlines()
+
+with open("output.txt", "w") as out:
+    for line in reversed(lines):
+        out.write(line.rstrip("\n")[::-1] + "\n")
