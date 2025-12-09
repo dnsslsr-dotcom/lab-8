@@ -1,0 +1,14 @@
+def open_file(filename):
+    try:
+        with open(filename, "r") as f:
+            print("OK")
+    except IOError:
+        print("Caught the I/O error")
+    finally:
+        print("Done")
+
+
+files = ["input.txt", "123456.py"]
+
+for name in files:
+    open_file(name)
