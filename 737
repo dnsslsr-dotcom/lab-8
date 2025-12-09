@@ -1,0 +1,9 @@
+import string
+
+text = "The quick brown fox jumps over the lazy dog"
+
+alphabet = set(string.ascii_lowercase)
+
+result = alphabet <= set(text.lower())
+
+print(result)  
